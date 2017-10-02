@@ -1,4 +1,4 @@
-from utils import distro, mem, motherboard, kernel, node, packages, screen, shell, uptime
+from .utils import distro, mem, motherboard, kernel, node, packages, screen, shell, uptime
 import os
 
 def get_colors(distro):
@@ -38,7 +38,7 @@ def get_colors(distro):
                    "windows$7": (red, green, blue, yellow)}
     return specs_colors.get(distro, red), dist_colors.get(distro, (white,)), reset
 
-def main(logofp=distro.distro_txt(), color=True):
+def main(logofp=distro.distro_txt().lower(), color=True):
     script_path = os.path.abspath(__file__)
     script_dir = os.path.split(script_path)[0]
 
